@@ -1,0 +1,29 @@
+i{
+    font-size: 32px !important;
+    padding: 10px;
+}
+.logo__header__img{
+    height: 60px;
+    width: 60px;
+}
+.email__input__label{
+    position: relative;
+    height: 60px;
+    width: 100%;
+}
+.email__input{
+    height: 40px;
+    width: 300px;
+}
+.submit__form{
+    position: absolute;
+    top: 0;
+    left: 80%;
+    height: 40px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
