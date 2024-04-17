@@ -15,14 +15,13 @@ use App\Http\Controllers\Controller;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', [Controller::class, 'index'])->name('index');
 
 Route::get('/auth', function () {
     return view('auth');
 })->name('auth');
 
-Route::get('/{city}/ads_{id}', function (Request $request, $id) {
-})->name('ads');
+Route::get('/{city}/ad_{id}', function ($city, $id){
+    dd($city, $id);
+})->name('ad');
 

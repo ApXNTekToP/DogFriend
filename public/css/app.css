@@ -27,3 +27,23 @@ i{
     overflow: hidden;
     outline: none;
 }
+
+.ads__block_info > span{
+    font-size: 10px;
+}
+
+.ads__block__price > span{
+    font-size: 22px;
+}
+
+.ads__block > img{
+    object-fit: cover !important;
+    padding: 10px 10px !important;
+    width: 100% !important;
+    height: 350px !important;
+}
+
+.ads__block_info{
+    padding: 10px 10px !important;
+    width: 100% !important;
+}

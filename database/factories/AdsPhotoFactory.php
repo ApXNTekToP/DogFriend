@@ -18,7 +18,8 @@ class AdsPhotoFactory extends Factory
     public function definition(): array
     {
         return [
-            'path' => 'img/image' . fake()->unique()->numberBetween(0, 10) . '.jpg'
+            'ads_id' => fake()->numberBetween(1, 52),
+            'path' => 'img/image' . fake()->numberBetween(0, 10) . '.jpg'
         ];
     }
 }

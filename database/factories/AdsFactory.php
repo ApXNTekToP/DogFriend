@@ -21,7 +21,8 @@ class AdsFactory extends Factory
     #[NoReturn] public function definition(): array
     {
         return [
-            'title' => fake()->title(),
+            'user_id' => fake()->numberBetween(1, 10),
+            'title' => fake()->text(80),
             'description' => fake()->text(),
             'price' => fake()->numberBetween(0,1000000),
         ];

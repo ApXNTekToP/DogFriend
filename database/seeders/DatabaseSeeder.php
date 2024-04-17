@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory(10)->create();
-        Ads::factory(10)->sequence(fn ($sequence) => ['user_id' => $sequence->index + 1])->create();
-        AdsPhoto::factory(10)->sequence(fn ($sequence) => ['ads_id' => $sequence->index + 1])->create();
+        Ads::factory(52)->create();
+        AdsPhoto::factory(100)->create();
     }
 }

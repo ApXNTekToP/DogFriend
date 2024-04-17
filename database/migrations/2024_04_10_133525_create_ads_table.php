@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('title', 50);
+            $table->string('title', 100);
             $table->string('description', 500);
             $table->decimal('price');
             $table->timestamps();
