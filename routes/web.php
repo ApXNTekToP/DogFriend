@@ -21,7 +21,5 @@ Route::get('/auth', function () {
     return view('auth');
 })->name('auth');
 
-Route::get('/{city}/ad_{id}', function ($city, $id){
-    dd($city, $id);
-})->name('ad');
+Route::get('/{city}/ad_{id}', [Controller::class, 'ad'])->name('ad');
 

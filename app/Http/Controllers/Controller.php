@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ads;
-use App\Models\AdsPhoto;
-use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -21,8 +19,12 @@ class Controller extends BaseController
         ]);
     }
 
-    public function ads($id): View
+    public function ad($city, $id): View
     {
-        return view('ads.ads_content');
+        $ad = Ads::all()->find($id);
+        return view('ads', [
+            'ad' => $ad,
+            'photo' => $ad->photo
+        ]);
     }
 }
