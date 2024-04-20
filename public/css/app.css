@@ -68,6 +68,13 @@ i{
     height: 350px !important;
 }
 
+.carousel-item > img{
+    object-fit: cover !important;
+    padding: 10px 10px !important;
+    width: 100% !important;
+    height: 550px !important;
+}
+
 .ads__block_info{
     padding: 10px 10px !important;
     width: 100% !important;
