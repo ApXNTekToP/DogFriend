@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ads;
+use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class Controller extends BaseController
@@ -30,6 +33,9 @@ class Controller extends BaseController
 
     public function personal(): View
     {
-        return view('personal');
+        $user = User::all()->find(Auth::id());
+        return view('personal', [
+            'groups' => $user->ads->chunk(3)
+        ]);
     }
 }

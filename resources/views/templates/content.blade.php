@@ -3,7 +3,7 @@
         <div class="col-md-12 d-flex flex-row">
             @foreach($group as $key => $el)
                 <div class="col-md-4 d-flex justify-content-center">
-                    <a href="{{ route('ad', [$el->user->city, $el->id]) }}">
+                    <a href="{{ route('ad', [$el->user->city, $el->id]) }}" class="h-100">
                         <div class="ads__block d-flex flex-column">
                             <img class="ads__block__img" src="{{ asset($el->photo->first()
                             ->path ??

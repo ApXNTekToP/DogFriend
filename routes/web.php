@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthenticateController;
+use App\Models\Ads;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,13 @@ use App\Http\Controllers\Controller;
 
 Route::get('/', [Controller::class, 'index'])->name('index');
 
+Route::get('/{city}/ad_{id}', [Controller::class, 'ad'])->name('ad');
+
+Route::get('/delete_ad/{id}', function ($id){
+    Ads::all()->find($id)->delete();
+    return redirect()->intended('personal');
+})->middleware('auth')->name('delete_ad');
+
 Route::get('/auth', function () {
     if(Auth::check()) {
         return redirect()->intended('personal');
@@ -28,9 +36,9 @@ Route::get('/auth', function () {
     }
 })->name('auth');
 
-Route::get('/{city}/ad_{id}', [Controller::class, 'ad'])->name('ad');
-
 Route::get('/personal', [Controller::class, 'personal'])->middleware('auth')->name('personal');
 
-Route::post('/login', [LoginController::class, 'authenticate'])->name('login_post_form');
+Route::get('/logout', [AuthenticateController::class, 'logout'])->middleware('auth')->name('logout');
+
+Route::post('/login', [AuthenticateController::class, 'authenticate'])->name('login_post_form');
 

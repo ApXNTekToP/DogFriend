@@ -2,8 +2,7 @@
     <div class="col-md-6 d-flex justify-content-center">
         <div class="logo__header align-content-center m-3">
             <a href="{{route('index')}}"><img class="logo__header__img" src="{{asset('img/logo/306277.svg')}}"
-                                              alt="DogFriend
-                    .ru logo"></a>
+                                              alt="DogFriend.ru logo"></a>
         </div>
         <div class="brand__name m-3">
             <div class="d-flex flex-column bd-highlight mb-2">
@@ -12,11 +11,14 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6 d-flex justify-content-center">
-        <div class="personal-account align-content-center m-3">
-            <div class="personal-account__icon">
+    <div class="col-md-6 d-flex justify-content-center align-items-center">
+        <div class="personal-account flex-row">
+            @if(!Auth::check())
                 <a href="{{route('auth')}}"><i class="fa fa-user" aria-hidden="true"></i></a>
-            </div>
+            @else
+                <a class="m-3" href="{{route('personal')}}">Личиный кабинет</a>
+                <a class="m-3" href="{{route('logout')}}">Выйти</a>
+            @endif
         </div>
     </div>
 </div>
