@@ -1,7 +1,7 @@
 @extends('layouts.basic-layout')
 @section('title', 'DogFriend.ru - Ваш магазин домашних животных')
-@section('keywords', 'автопродажа, магазин, телеграмм')
-@section('author', 'ApXNTekToP')
+@section('keywords', 'магазин')
+@section('author', 'Sofa')
 @section('header')
     @include('templates.header')
 @endsection

@@ -27,4 +27,9 @@ class Controller extends BaseController
             'photo' => $ad->photo
         ]);
     }
+
+    public function personal(): View
+    {
+        return view('personal');
+    }
 }
