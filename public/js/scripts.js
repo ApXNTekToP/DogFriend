@@ -13,62 +13,78 @@ for (let link of links) {
     })
 }
 
+let create_account_button = document.querySelector('#create_new_account');
+create_account_button.addEventListener('click', function (){
+    document.querySelector('.section--login').classList.add('d-none');
+    document.querySelector('.section--registration').classList.remove('d-none');
+});
+
+let have_account_button = document.querySelector('#have_account');
+have_account_button.addEventListener('click', function (){
+    document.querySelector('.section--login').classList.remove('d-none');
+    document.querySelector('.section--registration').classList.add('d-none');
+});
+
 let input = document.querySelector('input');
 if(input !== null){
-    document.querySelector('form').addEventListener('focusin', function (){
-        let input = document.querySelector('input:focus');
-        if(input === null){
-            let textarea = document.querySelector('textarea:focus');
-            if(textarea === null){
-                return false;
-            }else{
-                textarea.parentNode.querySelector('label').classList.add('input-active');
-                textarea.addEventListener('blur', () => {
-                    if(textarea.value === ''){
-                        textarea.parentNode.querySelector('label').classList.remove('input-active');
-                    }
-                })
-                textarea.addEventListener("input", function (event)
-                {
-                    if(textarea.id === 'email'){
-                        event.target.value = event.target.value.replace(/[А-ЯЁа-яё]/, "");
-                    }
-                    else if(textarea.id === 'inn'){
-                        event.target.value = event.target.value.replace(/\D/, "");
-                    }
-                });
-                return true;
+    document.querySelectorAll('form').forEach(function (currentValue, index){
+        currentValue.addEventListener('focusin', function (){
+            let input = document.querySelector('input:focus');
+            if(input === null){
+                let textarea = document.querySelector('textarea:focus');
+                if(textarea === null){
+                    return false;
+                }else{
+                    textarea.parentNode.querySelector('label').classList.add('input-active');
+                    textarea.addEventListener('blur', () => {
+                        if(textarea.value === ''){
+                            textarea.parentNode.querySelector('label').classList.remove('input-active');
+                        }
+                    })
+                    textarea.addEventListener("input", function (event)
+                    {
+                        if(textarea.id === 'email'){
+                            event.target.value = event.target.value.replace(/[А-ЯЁа-яё]/, "");
+                        }
+                        else if(textarea.id === 'inn'){
+                            event.target.value = event.target.value.replace(/\D/, "");
+                        }
+                    });
+                    return true;
+                }
             }
-        }
-        input.parentNode.querySelector('label').classList.add('input-active');
-        input.parentNode.querySelector('.icon_forms') !== null ? input.parentNode.querySelector('.icon_forms').classList.add('fa-none'):false;
-        input.addEventListener('blur', () => {
-            if(input.value === ''){
-                input.parentNode.querySelector('label').classList.remove('input-active');
-                input.parentNode.querySelector('.icon_forms') !== null ? input.parentNode.querySelector('.icon_forms').classList.remove('fa-none'):false;
-            }
-        })
-        input.addEventListener("input", function (event)
-        {
-            if(input.id === 'email'){
-                event.target.value = event.target.value.replace(/[А-ЯЁа-яё]/, "");
-            }else if(input.id === 'inn'){
-                event.target.value = event.target.value.replace(/\D/, "");
-            }
+            input.parentNode.querySelector('label').classList.add('input-active');
+            input.parentNode.querySelector('.icon_forms') !== null ? input.parentNode.querySelector('.icon_forms').classList.add('fa-none'):false;
+            input.addEventListener('blur', () => {
+                if(input.value === ''){
+                    input.parentNode.querySelector('label').classList.remove('input-active');
+                    input.parentNode.querySelector('.icon_forms') !== null ? input.parentNode.querySelector('.icon_forms').classList.remove('fa-none'):false;
+                }
+            })
+            input.addEventListener("input", function (event)
+            {
+                if(input.id === 'email'){
+                    event.target.value = event.target.value.replace(/[А-ЯЁа-яё]/, "");
+                }else if(input.id === 'inn'){
+                    event.target.value = event.target.value.replace(/\D/, "");
+                }
+            });
+            return true;
         });
-        return true;
     });
 
-    document.querySelector('form').addEventListener('change', function (){
-        let input = document.querySelectorAll('.form__input');
-        if(input === null){
-            return false;
-        }
-        input.forEach(function (el, i, input){
-            if(el.value !== '' && !el.classList.contains('input-active')){
-                el.parentNode.querySelector('label').classList.add('input-active');
-                el.parentNode.querySelector('.icon_forms') !== null ? el.parentNode.querySelector('.icon_forms').classList.add('fa-none'):false;
+    document.querySelectorAll('form').forEach(function (currentValue, index){
+        currentValue.addEventListener('change', function (){
+            let input = document.querySelectorAll('.form__input');
+            if(input === null){
+                return false;
             }
+            input.forEach(function (el, i, input){
+                if(el.value !== '' && !el.classList.contains('input-active')){
+                    el.parentNode.querySelector('label').classList.add('input-active');
+                    el.parentNode.querySelector('.icon_forms') !== null ? el.parentNode.querySelector('.icon_forms').classList.add('fa-none'):false;
+                }
+            });
         });
     });
 }

@@ -229,7 +229,7 @@ i{
 }
 
 .form__item {
-    margin: calc(50vh*0.1) 0;
+    margin: calc(50vh*0.1) 6px;
 }
 
 .form__input {

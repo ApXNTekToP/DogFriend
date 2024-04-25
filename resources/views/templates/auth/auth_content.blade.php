@@ -8,6 +8,9 @@
     .login-block{
         height: 100vh
     }
+    .registration-block{
+        height: 100vh
+    }
     .text-red {
         color: red;
         margin-bottom: 10px;
@@ -106,10 +109,131 @@
                                 <div class="col-md-12">
                                     <div class="form__footer">
                                         @csrf
-                                        <div class="form__button d-flex align-items-center justify-content-center">
-                                            <button class="btn btn--medium w-75" type="submit">
+                                        <div class="form__button d-flex align-items-center justify-content-center
+                                        flex-column">
+                                            <button class="btn btn--medium w-75 m-3" type="submit">
                                                 <span class="btn-label">Войти</span>
                                             </button>
+                                            <span id="create_new_account" class="btn-label">Создать новый
+                                                аккаунт</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section--registration d-none">
+        <div class="registration">
+            <div class="container registration-block d-flex justify-content-center align-items-center">
+                <div class="row registration_mobile">
+                    <div class="col-md-12">
+                        <form action="{{route('create_user')}}" method="POST">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-title d-flex justify-content-center">
+                                        <a href="{{route('index')}}">
+                                            <label class="display-3 text-normal">Dog<span
+                                                    class="text-bold">Friend</span></label>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form__main flex-column">
+                                        <div class="col-md-12 d-flex flex-row">
+                                            <div class="form__item input-group d-flex flex-column">
+                                                <input class="form__input w-100 form-control" id="reg_last_name"
+                                                       type="text"
+                                                       name="reg_last_name"
+                                                       value="" maxlength="50">
+                                                <label class="form__placeholder h5" for="reg_last_name">
+                                                    Last Name *
+                                                </label>
+                                                <span class="text-red">{{ $errors->first('reg_last_name') }}</span>
+                                            </div>
+                                            <div class="form__item input-group d-flex flex-column">
+                                                <input class="form__input w-100 form-control" id="reg_first_name"
+                                                       type="text"
+                                                       name="reg_first_name"
+                                                       value="" maxlength="50">
+                                                <label class="form__placeholder h5" for="reg_first_name">
+                                                    First Name *
+                                                </label>
+                                                <span class="text-red">{{ $errors->first('reg_first_name') }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex flex-row">
+                                            <div class="form__item input-group d-flex">
+                                                <input class="form__input w-100 form-control" id="reg_city"
+                                                       type="text"
+                                                       name="reg_city"
+                                                       value="" maxlength="50">
+                                                <label class="form__placeholder h5" for="reg_city">
+                                                    City *
+                                                </label>
+                                                <span class="text-red">{{ $errors->first('reg_city') }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex flex-row">
+                                            <div class="form__item input-group d-flex">
+                                                <input class="form__input w-100 form-control" id="reg_phone"
+                                                       type="text"
+                                                       name="reg_phone"
+                                                       value="" maxlength="50">
+                                                <label class="form__placeholder h5" for="reg_phone">
+                                                    Phone *
+                                                </label>
+                                                <span class="text-red">{{ $errors->first('reg_phone') }}</span>
+                                            </div>
+                                            <div class="form__item input-group d-flex">
+                                                <input class="form__input w-100 form-control" id="reg_email"
+                                                       type="text"
+                                                       name="reg_email"
+                                                       value="" maxlength="50">
+                                                <label class="form__placeholder h5" for="reg_email">
+                                                    E-mail *
+                                                </label>
+                                                <span class="text-red">{{ $errors->first('reg_email') }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex flex-row">
+                                            <div class="form__item input-group d-flex flex-column">
+                                                <input class="form__input w-100 form-control" id="reg_password" type="password"
+                                                       name="reg_password" value="" maxlength="30">
+                                                <label class="form__placeholder h5" for="reg_password">
+                                                    Password *
+                                                </label>
+                                                <i class="fa fa-eye fa-none" aria-hidden="true"></i>
+                                                <span class="text-red">{{ $errors->first('reg_password') }}</span>
+                                            </div>
+                                            <div class="form__item input-group d-flex flex-column">
+                                                <input class="form__input w-100 form-control" id="reg_repeat_password"
+                                                       type="password"
+                                                       name="reg_repeat_password" value="" maxlength="30">
+                                                <label class="form__placeholder h5" for="reg_repeat_password">
+                                                    Repeat password *
+                                                </label>
+                                                <i class="fa fa-eye fa-none" aria-hidden="true"></i>
+                                                <span class="text-red">{{ $errors->first('reg_repeat_password') }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form__footer">
+                                        @csrf
+                                        <div class="form__button d-flex align-items-center justify-content-center flex-column">
+                                            <button class="btn btn--medium w-75 m-3" type="submit">
+                                                <span class="btn-label">Зарегестрироваться</span>
+                                            </button>
+                                            <span id="have_account" class="btn-label">Уже есть аккаунт?</span>
                                         </div>
                                     </div>
                                 </div>

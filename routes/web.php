@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticateController;
+use App\Http\Controllers\UserController;
 use App\Models\Ads;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -41,4 +42,6 @@ Route::get('/personal', [Controller::class, 'personal'])->middleware('auth')->na
 Route::get('/logout', [AuthenticateController::class, 'logout'])->middleware('auth')->name('logout');
 
 Route::post('/login', [AuthenticateController::class, 'authenticate'])->name('login_post_form');
+
+Route::post('/users/create', [UserController::class, 'create'])->name('create_user');
 
