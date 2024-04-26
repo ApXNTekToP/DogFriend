@@ -13,7 +13,7 @@ for (let link of links) {
     })
 }
 
-let create_account_button = document.querySelector('#create_new_account');
+/*let create_account_button = document.querySelector('#create_new_account');
 create_account_button.addEventListener('click', function (){
     document.querySelector('.section--login').classList.add('d-none');
     document.querySelector('.section--registration').classList.remove('d-none');
@@ -23,7 +23,7 @@ let have_account_button = document.querySelector('#have_account');
 have_account_button.addEventListener('click', function (){
     document.querySelector('.section--login').classList.remove('d-none');
     document.querySelector('.section--registration').classList.add('d-none');
-});
+});*/
 
 let input = document.querySelector('input');
 if(input !== null){

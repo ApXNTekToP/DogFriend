@@ -37,6 +37,8 @@ Route::get('/auth', function () {
     }
 })->name('auth');
 
+Route::get('/register', [Controller::class, 'register'])->name('register');
+
 Route::get('/personal', [Controller::class, 'personal'])->middleware('auth')->name('personal');
 
 Route::get('/logout', [AuthenticateController::class, 'logout'])->middleware('auth')->name('logout');

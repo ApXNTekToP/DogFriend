@@ -32,6 +32,11 @@ class Controller extends BaseController
         ]);
     }
 
+    public function register(): View
+    {
+        return view('register');
+    }
+
     public function personal(): View
     {
         $user = User::all()->find(Auth::id());
