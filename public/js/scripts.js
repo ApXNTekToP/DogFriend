@@ -26,8 +26,18 @@ have_account_button.addEventListener('click', function (){
 });*/
 
 let input = document.querySelector('input');
+
 if(input !== null){
     document.querySelectorAll('form').forEach(function (currentValue, index){
+        let all_inputs = currentValue.querySelectorAll('input, textarea');
+        all_inputs.forEach(function (element, elementIndex) {
+            if(element.value && currentValue.classList.value !== 'send__email__form'){
+                try {
+                    element.parentNode.querySelector('label').classList.add('input-active');
+                }catch (e) {
+                }
+            }
+        });
         currentValue.addEventListener('focusin', function (){
             let input = document.querySelector('input:focus');
             if(input === null){

@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\UserFavoriteAds;
+use App\Models\UserAd;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<UserFavoriteAds>
+ * @extends Factory<UserAd>
  */
-class UserFavoriteAdsFactory extends Factory
+class UserAdFactory extends Factory
 {
     /**
      * Define the model's default state.

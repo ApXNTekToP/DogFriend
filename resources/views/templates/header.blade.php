@@ -1,7 +1,7 @@
 <div class="col-md-12 d-flex">
     <div class="col-md-6 d-flex justify-content-center">
         <div class="logo__header align-content-center m-3">
-            <a href="{{route('index')}}"><img class="logo__header__img" src="{{asset('img/logo/306277.svg')}}"
+            <a href="{{route('index')}}"><img class="logo__header__img" src="{{asset('storage/img/logo/306277.svg')}}"
                                               alt="DogFriend.ru logo"></a>
         </div>
         <div class="brand__name m-3">
@@ -13,6 +13,10 @@
     </div>
     <div class="col-md-6 d-flex justify-content-center align-items-center">
         <div class="personal-account flex-row">
+            <a  class="m-3" href="{{route('favorite')}}">Избранное</a>
+            @if(Route::getCurrentRoute()->getName() !== 'create_ad_view' && Auth::check())
+                <a href="{{route('create_ad_view')}}" class="btn btn-success">Создать объявление</a>
+            @endif
             @if(!Auth::check())
                 <a href="{{route('auth')}}"><i class="fa fa-user" aria-hidden="true"></i></a>
             @else

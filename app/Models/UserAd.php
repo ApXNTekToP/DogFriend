@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserFavoriteAds extends Model
+class UserAd extends Model
 {
     use HasFactory;
 
-    protected $table = 'users_favorites_ads';
+    protected $table = 'user_ad';
 
     /**
      * The attributes that are mass assignable.
@@ -18,7 +18,7 @@ class UserFavoriteAds extends Model
      */
     protected $fillable = [
         'user_id',
-        'ads_id'
+        'ads_id',
     ];
 
     /**

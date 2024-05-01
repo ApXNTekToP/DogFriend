@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ads;
 use App\Models\User;
+use App\Models\UserAd;
 use http\Client\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -42,6 +43,22 @@ class Controller extends BaseController
         $user = User::all()->find(Auth::id());
         return view('personal', [
             'groups' => $user->ads->chunk(3)
+        ]);
+    }
+
+    public function favorite(): View
+    {
+        $user = User::all()->find(Auth::id());
+        return view('favorite', [
+            'groups' => $user->favorite_ads->chunk(3)
+        ]);
+    }
+
+    public function create_ad_view(): View
+    {
+        $user = User::all()->find(Auth::id());
+        return view('create_ad', [
+            'user' => $user
         ]);
     }
 }

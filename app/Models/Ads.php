@@ -23,7 +23,8 @@ class Ads extends Model
         'ads_id',
         'title',
         'description',
-        'price'
+        'price',
+        'user_id',
     ];
 
     /**

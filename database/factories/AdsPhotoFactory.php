@@ -19,7 +19,7 @@ class AdsPhotoFactory extends Factory
     {
         return [
             'ads_id' => fake()->numberBetween(1, 52),
-            'path' => 'img/image' . fake()->numberBetween(0, 10) . '.jpg'
+            'path' => 'storage/img/image' . fake()->numberBetween(0, 10) . '.jpg'
         ];
     }
 }

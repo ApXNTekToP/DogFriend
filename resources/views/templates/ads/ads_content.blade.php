@@ -47,6 +47,7 @@
                     {{ $ad->description }},
                 </span>
             </div>
+            <a href="{{ route('add_ad_favorite', $ad->id) }}">Добавить объявление в избранное</a>
             @if(url()->current() !== url()->previous())
                 <a href="{{ url()->previous() }}">Вернуться назад</a>
             @endif
